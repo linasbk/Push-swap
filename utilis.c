@@ -8,10 +8,10 @@ static int	ft_isspace(char str)
 	return (0);
 }
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
-	int	sign;
-	int	num;
+	int		sign;
+	long	num;
 
 	sign = 1;
 	num = 0;

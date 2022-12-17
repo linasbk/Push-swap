@@ -8,7 +8,7 @@ typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
-}              t_s   tack_list;
+}              t_stack_list;
 
 typedef struct s_stack
 {
@@ -17,10 +17,15 @@ typedef struct s_stack
 }              t_stack;
 
 void			ft_error();
-int				ft_atoi(char *str);
+long			ft_atoi(char *str);
 int				ft_parse(char **av);
 void			ft_lstadd_back(t_stack_list **lst, t_stack_list *new);
+void			ft_lstadd_front(t_stack_list **lst, t_stack_list *new);
 void			swap_stack(t_stack *stacks, char var);
+void			ft_push_b(t_stack *stacks);
+void			ft_push_a(t_stack *stacks);
+void			rotate(t_stack *stacks, char var);
+void 			reverse_rotate(t_stack *stacks, char var);
 t_stack_list	*ft_lstnew(int content);
 t_stack_list	*ft_lstlast(t_stack_list *lst);
 
