@@ -1,5 +1,6 @@
 #include"push_swap.h"
 #include<stdio.h>
+
 void	ft_error()
 {
 	write(1, "\033[1;31m Error\n", 15);
@@ -64,3 +65,4 @@ int main (int ac, char **av)
 	// system("leaks push_swap");
 	return 0;
 }
+
