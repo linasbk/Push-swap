@@ -16,17 +16,7 @@ t_stack    *ft_init()
 	stacks->B = NULL;
     return(stacks);
 }
-void sort_3num(t_stack	*stacks)
-{
-	t_stack_list	*tmp;
 
-	tmp = stacks->A;
-	if (tmp->next->content > tmp->next->next->content && tmp->content < tmp->next->next->content)
-		{
-			swap_stack(stacks, 'a');
-			rotate(stacks,'a');
-		}
-}
 int main (int ac, char **av)
 {
     t_stack *stacks;

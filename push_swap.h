@@ -28,6 +28,7 @@ void			rotate(t_stack *stacks, char var);
 void 			reverse_rotate(t_stack *stacks, char var);
 void			ft_free(t_stack_list **stack_a);
 void			free_all(t_stack *stacks);
+void			sort_3num(t_stack	*stacks);
 int				check_sort(t_stack_list **stack);
 t_stack_list	*ft_lstnew(int content);
 t_stack_list	*ft_lstlast(t_stack_list *lst);
