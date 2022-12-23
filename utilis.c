@@ -80,3 +80,5 @@ t_stack_list	*ft_lstlast(t_stack_list *lst)
 		lst = lst ->next;
 	return (lst);
 }
+
+

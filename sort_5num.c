@@ -122,5 +122,3 @@ void    ft_sort_5nums(t_stack stack_a, t_stack stack_b, int i)
     while (ft_stack_size(stack_b) != 0)
         print_pa(stack_b, stack_a);
 }
-
-
