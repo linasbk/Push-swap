@@ -1,4 +1,16 @@
-#include"push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utilis.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/22 16:54:12 by lsabik            #+#    #+#             */
+/*   Updated: 2022/12/22 16:54:14 by lsabik           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include"include/push_swap.h"
 
 static int	ft_isspace(char str)
 {
@@ -23,11 +35,15 @@ long	ft_atoi(char *str)
 			sign = -1;
 		str++;
 	}
+	if (!*str)
+		return (INT_MAX + 1l);
 	while (*str >= '0' && *str <= '9')
 	{
 		num = (num * 10) + *str - 48;
 		str++;
 	}
+	if (*str)
+		return (INT_MAX + 1l);
 	return (sign * num);
 }
 

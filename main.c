@@ -1,58 +1,92 @@
-#include"push_swap.h"
-#include<stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/22 16:53:00 by lsabik            #+#    #+#             */
+/*   Updated: 2022/12/22 16:53:02 by lsabik           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_error()
+#include"include/push_swap.h"
+
+void	ft_error(void)
 {
 	write(1, "\033[1;31m Error\n", 15);
 	exit(EXIT_FAILURE);
 }
 
-t_stack    *ft_init()
+t_stack	*ft_init(void)
 {
-    t_stack *stacks;
+	t_stack	*stacks;
 
-    stacks = (t_stack *)malloc(sizeof(t_stack) * 1);
-	stacks->A = NULL;
-	stacks->B = NULL;
-    return(stacks);
+	stacks = (t_stack *)malloc(sizeof(t_stack));
+	stacks->a = NULL;
+	stacks->b = NULL;
+	return (stacks);
 }
 
-int main (int ac, char **av)
+void	get_pos(char **arg, t_stack_list *a)
 {
-    t_stack *stacks;
-	int		i;
+	int	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (arg[i])
+	{
+		if (arg[i] < arg[i + 1])
+		{
+			a->pos = j;
+			j++;
+			i++;
+		}
+		else
+			i++;
+	}
+}
+
+void	fill_stack(t_stack *stacks, char **args)
+{
+	int	i;
+
+	i = 0;
+	while (args && args[i])
+	{
+		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(args[i])));
+		i++;
+	}
+	stacks->a->size = i;
+	if (ft_parse(args))
+		ft_error();
+	get_pos(args, stacks->a);
+}
+
+int	main(int ac, char **av)
+{
+	t_stack	*stacks;
+	char	*arg;
+	char	**args;
 
 	if (ac < 2)
 		exit(EXIT_FAILURE);
-	if (ft_parse(av))
-		ft_error();
-    stacks = ft_init();
-	i = 0;
-	while (av[++i])
-		ft_lstadd_back(&stacks->A, ft_lstnew(ft_atoi(av[i])));
-	// swap_stack(stacks, 'a');
-	// ft_push_b(stacks);
-	// reverse_rotate(stacks, 'a');
-	if (ac == 4)
+	stacks = ft_init();
+	arg = join_args(av, ac);
+	args = ft_split(arg, ' ');
+	fill_stack(stacks, args);
+	if (stacks->a->size <= 3)
 		sort_3num(stacks);
+	if (stacks->a->size > 3 && stacks->a->size <= 5)
+		sort_5num(stacks);
 	printf("\n****** A ******\n\n");
-	while(stacks->A)
+	while(stacks->a)
 	{
-		printf("%d\n", stacks->A->content);
-		stacks->A = stacks->A->next;
+		printf("%d\n", stacks->a->content);
+		stacks->a = stacks->a->next;
 	}
-	// free_all(stacks);
-	// printf("\n****** B ******\n\n");
-	// while(stacks->B)
-	// {
-	// 	printf("%d\n", stacks->B->content);
-	// 	stacks->B = stacks->B->next;
-	// }
-
-	// if(check_sort(&stacks->A)) //not sorted
-	// 	printf("not sorted %d", check_sort(&stacks->A));
 	free_all(stacks);
 	// system("leaks push_swap");
-	return 0;
+	return (0);
 }
-

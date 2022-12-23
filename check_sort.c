@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   check_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 16:52:36 by lsabik            #+#    #+#             */
-/*   Updated: 2022/12/22 16:52:39 by lsabik           ###   ########.fr       */
+/*   Created: 2022/12/22 16:52:23 by lsabik            #+#    #+#             */
+/*   Updated: 2022/12/22 16:52:27 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"include/push_swap.h"
 
-void	free_stack(t_stack_list *stack)
+int	check_sort(t_stack_list **stack)
 {
 	t_stack_list	*tmp;
 
-	tmp = stack;
-	while (stack)
+	tmp = *stack;
+	while (*stack && tmp->next)
 	{
-		stack = stack->next;
-		free(tmp);
-		tmp = stack;
+		if (tmp->content > tmp->next->content)
+			return (0);
+		tmp = tmp->next;
 	}
-}
-
-void	free_all(t_stack *stacks)
-{
-	free_stack(stacks->a);
-	free_stack(stacks->b);
-	free(stacks);
+	return (1);
 }

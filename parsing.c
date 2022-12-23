@@ -1,18 +1,26 @@
-#include"push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/22 16:53:10 by lsabik            #+#    #+#             */
+/*   Updated: 2022/12/22 16:53:12 by lsabik           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include"include/push_swap.h"
 
 int	ft_isdigit(char **av)
 {
 	size_t		i;
 
-	i = 1;
+	i = 0;
 	while (av[i])
 	{
-		if (av[i][0] == '0')
-			i++;
-		else if (!ft_atoi(av[i]) || ft_atoi(av[i]) > INT_MAX || 
-					ft_atoi(av[i]) < INT_MIN)
-		    return (1);
+		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)
+			return (1);
 		else
 			i++;
 	}
@@ -24,7 +32,7 @@ int	ft_dup(char **av)
 	size_t		i;
 	size_t		j;
 
-	i = 1;
+	i = 0;
 	while (av[i])
 	{
 		j = i + 1;
@@ -39,9 +47,36 @@ int	ft_dup(char **av)
 	return (0);
 }
 
-int ft_parse(char **av)
+int	ft_parse(char **av)
 {
-    if (ft_isdigit(av)|| ft_dup(av))
-		return (1);
-	return (0);
+	return (ft_isdigit(av) || ft_dup(av));
 }
+
+// void    assign_index(t_stack *stack_a, int stack_size)
+// {
+//     t_stack    *ptr;
+//     t_stack    *highest;
+//     int        value;
+
+//     while (--stack_size > 0)
+//     {
+//         ptr = stack_a;
+//         value = INT_MIN;
+//         highest = NULL;
+//         while (ptr)
+//         {
+//             if (ptr->value == INT_MIN && ptr->index == 0)
+//                 ptr->index = 1;
+//             if (ptr->value > value && ptr->index == 0)
+//             {
+//                 value = ptr->value;
+//                 highest = ptr;
+//                 ptr = stack_a;
+//             }
+//             else
+//                 ptr = ptr->next;
+//         }
+//         if (highest != NULL)
+//             highest->index = stack_size;
+//     }
+// }
