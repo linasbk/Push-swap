@@ -61,7 +61,7 @@ void	fill_stack(t_stack *stacks, char **args)
 	stacks->a->size = i;
 	if (ft_parse(args))
 		ft_error();
-	get_pos(args, stacks->a);
+	// get_pos(args, stacks->a);
 }
 
 int	main(int ac, char **av)
@@ -76,15 +76,25 @@ int	main(int ac, char **av)
 	arg = join_args(av, ac);
 	args = ft_split(arg, ' ');
 	fill_stack(stacks, args);
-	if (stacks->a->size <= 3)
-		sort_3num(stacks);
-	if (stacks->a->size > 3 && stacks->a->size <= 5)
-		sort_5num(stacks);
-	printf("\n****** A ******\n\n");
-	while(stacks->a)
+	get_index(stacks->a);
+	// if (stacks->a->size <= 3)
+	// 	sort_3num(stacks);
+	// if (stacks->a->size > 3 && stacks->a->size <= 5)
+	// 	sort_5num(stacks);
+	// printf("\n****** A ******\n\n");
+	// while(stacks->a)
+	// {
+	// 	if (stacks->a)
+	// 		printf("%d,%d\n", stacks->a->content,stacks->a->pos);
+	// 	stacks->a = stacks->a->next;
+	// }
+	if (stacks->a->size > 5)
+		sort_num(stacks);
+		printf("\n****** B ******\n\n");
+	while(stacks->b)
 	{
-		printf("%d\n", stacks->a->content);
-		stacks->a = stacks->a->next;
+		printf("%d\n", stacks->b->content);
+		stacks->b = stacks->b->next;
 	}
 	free_all(stacks);
 	// system("leaks push_swap");

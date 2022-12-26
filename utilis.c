@@ -55,6 +55,7 @@ t_stack_list	*ft_lstnew(int content)
 	if (!node)
 		return (NULL);
 	node->content = content ;
+	node->pos = 0;
 	node->next = NULL;
 	return (node);
 }

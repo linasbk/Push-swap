@@ -15,12 +15,16 @@
 void	ft_rotate(t_stack_list **stack)
 {
 	t_stack_list	*tmp;
+	t_stack_list	*top;
+	t_stack_list	*tail;
 
-	tmp = *stack;
-	ft_lstadd_back(stack, ft_lstnew((*stack)->content));
-	tmp = *stack;
-	*stack = (*stack)->next;
-	free(tmp);
+	tail = ft_lstlast(*stack);
+	top = *stack;
+
+	tmp = (*stack)->next;
+	tail->next = top;
+	top->next = NULL;
+	(*stack) = tmp;
 }
 
 void	rotate(t_stack *stacks, char var)
@@ -53,13 +57,25 @@ void	rotate(t_stack *stacks, char var)
 void	ft_reverse_rotate(t_stack_list **stack)
 {
 	t_stack_list	*tmp;
+	t_stack_list	*top;
+	t_stack_list	*tail;
 
-	ft_lstadd_front(stack, ft_lstnew(ft_lstlast(*stack)->content));
+	tail = ft_lstlast(*stack);
+	top = *stack;
+
+	// tmp = (*stack)->next;
+	// tail->next = top;
+	// top->next = NULL;
+	// (*stack) = tmp;
+
+	// ft_lstadd_front(stack, ft_lstnew(ft_lstlast(*stack)->content));
 	tmp = *stack;
 	while (tmp->next->next)
 		tmp = tmp->next;
-	free (tmp->next);
+	// free (tmp->next);
 	tmp->next = NULL;
+	(*stack) = tail;
+	(*stack)->next = top;
 }
 
 void	reverse_rotate(t_stack *stacks, char var)

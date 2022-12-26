@@ -51,4 +51,8 @@ t_stack_list	*ft_lstnew(int content);
 t_stack_list	*ft_lstlast(t_stack_list *lst);
 int				get_num_word(char *s, char sep);
 int				max_value(t_stack_list *stack);
+void			sort_num(t_stack *stacks);
+int				find_pos(t_stack_list *stack, int min);
+int				min_value(t_stack_list *stack);
+void	get_index(t_stack_list *a);
 #endif
