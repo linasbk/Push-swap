@@ -76,6 +76,7 @@ int	main(int ac, char **av)
 	arg = join_args(av, ac);
 	args = ft_split(arg, ' ');
 	fill_stack(stacks, args);
+<<<<<<< HEAD
 	get_index(stacks->a);
 	// if (stacks->a->size <= 3)
 	// 	sort_3num(stacks);
@@ -95,6 +96,20 @@ int	main(int ac, char **av)
 	{
 		printf("%d\n", stacks->b->content);
 		stacks->b = stacks->b->next;
+=======
+	if (stacks->a->size <= 3)
+		sort_3num(stacks);
+	// if (stacks->a->size > 3 && stacks->a->size <= 5)
+	// 	sort_5num(stacks);
+	// if (stacks->a->size > 5)
+	// 	sort_num(stacks);
+	get_index(stacks->a);
+	printf("\n****** A ******\n\n");
+	while(stacks->a)
+	{
+		printf("%d,%d\n", stacks->a->content,stacks->a->pos);
+		stacks->a = stacks->a->next;
+>>>>>>> 78bf0c1cce350f6187eecf3749a1c9d0fd9b6bc4
 	}
 	free_all(stacks);
 	// system("leaks push_swap");
