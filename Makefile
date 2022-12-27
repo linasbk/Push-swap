@@ -16,7 +16,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -fsanitize=address
 
-%.o: %.c push_swap.h
+%.o: %.c ./include/push_swap.h
 	$(CC) $(CFLAGS) -c $<
 
 clean:

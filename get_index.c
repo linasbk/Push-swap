@@ -1,6 +1,6 @@
 #include"include/push_swap.h"
 
-void	get_index(t_stack_list *a)
+void	get_pos(t_stack_list *a)
 {
 	t_stack_list	*current_pos;
 	t_stack_list	*compare;

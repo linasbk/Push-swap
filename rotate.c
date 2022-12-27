@@ -62,17 +62,9 @@ void	ft_reverse_rotate(t_stack_list **stack)
 
 	tail = ft_lstlast(*stack);
 	top = *stack;
-
-	// tmp = (*stack)->next;
-	// tail->next = top;
-	// top->next = NULL;
-	// (*stack) = tmp;
-
-	// ft_lstadd_front(stack, ft_lstnew(ft_lstlast(*stack)->content));
 	tmp = *stack;
 	while (tmp->next->next)
 		tmp = tmp->next;
-	// free (tmp->next);
 	tmp->next = NULL;
 	(*stack) = tail;
 	(*stack)->next = top;

@@ -28,26 +28,6 @@ t_stack	*ft_init(void)
 	return (stacks);
 }
 
-void	get_pos(char **arg, t_stack_list *a)
-{
-	int	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (arg[i])
-	{
-		if (arg[i] < arg[i + 1])
-		{
-			a->pos = j;
-			j++;
-			i++;
-		}
-		else
-			i++;
-	}
-}
-
 void	fill_stack(t_stack *stacks, char **args)
 {
 	int	i;
@@ -61,13 +41,13 @@ void	fill_stack(t_stack *stacks, char **args)
 	stacks->a->size = i;
 	if (ft_parse(args))
 		ft_error();
-	// get_pos(args, stacks->a);
 }
 
 int	main(int ac, char **av)
 {
 	t_stack	*stacks;
 	char	*arg;
+	int		size;
 	char	**args;
 
 	if (ac < 2)
@@ -76,12 +56,14 @@ int	main(int ac, char **av)
 	arg = join_args(av, ac);
 	args = ft_split(arg, ' ');
 	fill_stack(stacks, args);
-<<<<<<< HEAD
-	get_index(stacks->a);
+	get_pos(stacks->a);
+	size = stacks->a->size;
 	// if (stacks->a->size <= 3)
 	// 	sort_3num(stacks);
 	// if (stacks->a->size > 3 && stacks->a->size <= 5)
 	// 	sort_5num(stacks);
+	if (size > 5)
+		sort_num(stacks, size);
 	// printf("\n****** A ******\n\n");
 	// while(stacks->a)
 	// {
@@ -89,28 +71,12 @@ int	main(int ac, char **av)
 	// 		printf("%d,%d\n", stacks->a->content,stacks->a->pos);
 	// 	stacks->a = stacks->a->next;
 	// }
-	if (stacks->a->size > 5)
-		sort_num(stacks);
-		printf("\n****** B ******\n\n");
-	while(stacks->b)
-	{
-		printf("%d\n", stacks->b->content);
-		stacks->b = stacks->b->next;
-=======
-	if (stacks->a->size <= 3)
-		sort_3num(stacks);
-	// if (stacks->a->size > 3 && stacks->a->size <= 5)
-	// 	sort_5num(stacks);
-	// if (stacks->a->size > 5)
-	// 	sort_num(stacks);
-	get_index(stacks->a);
-	printf("\n****** A ******\n\n");
-	while(stacks->a)
-	{
-		printf("%d,%d\n", stacks->a->content,stacks->a->pos);
-		stacks->a = stacks->a->next;
->>>>>>> 78bf0c1cce350f6187eecf3749a1c9d0fd9b6bc4
-	}
+	// 	printf("\n****** B ******\n\n");
+	// while(stacks->b)
+	// {
+	// 	printf("%d\n", stacks->b->content);
+	// 	stacks->b = stacks->b->next;
+	// }
 	free_all(stacks);
 	// system("leaks push_swap");
 	return (0);
