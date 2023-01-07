@@ -25,21 +25,25 @@ void	swap_stack(t_stack *stacks, char var)
 {
 	if (var == 'a')
 	{
-		if (!stacks->a || !stacks->a->next)
+		if (stacks->size < 2)
 			return ;
 		ft_swap(stacks->a);
 		write(1, "sa\n", 3);
 	}
 	if (var == 'b')
 	{
-		if (!stacks->b || !stacks->b->next)
+		if (!stacks->b)
+			return ;
+		if (!(stacks->b)->next)
 			return ;
 		ft_swap(stacks->b);
 		write(1, "sb\n", 3);
 	}
 	if (var == 's')
 	{
-		if (!stacks->a || !stacks->a->next || !stacks->b || !stacks->b->next)
+		if (!stacks->b || !stacks->a)
+			return ;
+		if (!(stacks->b)->next || !(stacks->a)->next)
 			return ;
 		ft_swap(stacks->a);
 		ft_swap(stacks->b);

@@ -35,10 +35,9 @@ void	fill_stack(t_stack *stacks, char **args)
 	i = 0;
 	while (args && args[i])
 	{
-		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(args[i])));
+		ft_lstadd_back(&stacks->a, ft_lstnew(ft_atoi(args[i]), stacks));
 		i++;
 	}
-	stacks->a->size = i;
 	if (ft_parse(args))
 		ft_error();
 }
@@ -54,30 +53,30 @@ int	main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	stacks = ft_init();
 	arg = join_args(av, ac);
-	args = ft_split(arg, ' ');
+	args = ft_split(stacks, arg, ' ');
 	fill_stack(stacks, args);
 	get_pos(stacks->a);
 	size = stacks->a->size;
-	// if (stacks->a->size <= 3)
-	// 	sort_3num(stacks);
-	// if (stacks->a->size > 3 && stacks->a->size <= 5)
-	// 	sort_5num(stacks);
+	if (size <= 3)
+		sort_3num(stacks);
+	if (size > 3 && stacks->a->size <= 5)
+		sort_5num(stacks);
 	if (size > 5)
 		sort_num(stacks, size);
-	// printf("\n****** A ******\n\n");
+	// 	printf("\n****** A ******\n\n");
 	// while(stacks->a)
 	// {
 	// 	if (stacks->a)
 	// 		printf("%d,%d\n", stacks->a->content,stacks->a->pos);
 	// 	stacks->a = stacks->a->next;
 	// }
+	free_all(stacks);
+	return (0);
+}
+
 	// 	printf("\n****** B ******\n\n");
 	// while(stacks->b)
 	// {
 	// 	printf("%d\n", stacks->b->content);
 	// 	stacks->b = stacks->b->next;
 	// }
-	free_all(stacks);
-	// system("leaks push_swap");
-	return (0);
-}

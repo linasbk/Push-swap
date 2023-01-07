@@ -29,6 +29,7 @@ typedef struct s_stack
 {
 	t_stack_list	*a;
 	t_stack_list	*b;
+	int				size;
 }				t_stack;
 
 void			ft_error(void);
@@ -46,8 +47,8 @@ void			sort_3num(t_stack *stacks);
 void			sort_5num(t_stack *stacks);
 char			*join_args(char **av, int ac);
 int				check_sort(t_stack_list **stack);
-char			**ft_split(char const *s, char c);
-t_stack_list	*ft_lstnew(int content);
+char			**ft_split(t_stack *stacks, char const *s, char c);
+t_stack_list	*ft_lstnew(int content, t_stack *stacks);
 t_stack_list	*ft_lstlast(t_stack_list *lst);
 int				get_num_word(char *s, char sep);
 int				max_value(t_stack_list *stack);
@@ -55,4 +56,6 @@ void			sort_num(t_stack *stacks, int size);
 int				find_pos(t_stack_list *stack, int min);
 int				min_value(t_stack_list *stack);
 void			get_pos(t_stack_list *a);
+void			sort_num500(t_stack *stacks, int size);
+int				get_index(t_stack_list *b, int num);
 #endif

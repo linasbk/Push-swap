@@ -31,7 +31,9 @@ void	rotate(t_stack *stacks, char var)
 {
 	if (var == 'a')
 	{
-		if (!stacks->a)
+		if (!(stacks->a))
+			return ;
+		if (!(stacks->a)->next)
 			return ;
 		ft_rotate(&stacks->a);
 		write(1, "ra\n", 3);
@@ -40,12 +42,16 @@ void	rotate(t_stack *stacks, char var)
 	{
 		if (!stacks->b)
 			return ;
+		if (!(stacks->b)->next)
+			return ;
 		ft_rotate(&stacks->b);
 		write(1, "rb\n", 3);
 	}
 	if (var == 's')
 	{
 		if (!stacks->b || !stacks->a)
+			return ;
+		if (!(stacks->b)->next || !(stacks->a)->next)
 			return ;
 		ft_rotate(&stacks->a);
 		ft_rotate(&stacks->b);
@@ -76,6 +82,8 @@ void	reverse_rotate(t_stack *stacks, char var)
 	{
 		if (!stacks->a)
 			return ;
+		if (!(stacks->a)->next)
+			return ;
 		ft_reverse_rotate(&stacks->a);
 		write(1, "rra\n", 4);
 	}
@@ -83,12 +91,16 @@ void	reverse_rotate(t_stack *stacks, char var)
 	{
 		if (!stacks->b)
 			return ;
+		if (!(stacks->b)->next)
+			return ;
 		ft_reverse_rotate(&stacks->b);
 		write(1, "rrb\n", 4);
 	}
 	if (var == 's')
 	{
 		if (!stacks->b || !stacks->a)
+			return ;
+		if (!(stacks->b)->next || !(stacks->a)->next)
 			return ;
 		ft_reverse_rotate(&stacks->a);
 		ft_reverse_rotate(&stacks->b);

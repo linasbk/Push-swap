@@ -47,7 +47,7 @@ long	ft_atoi(char *str)
 	return (sign * num);
 }
 
-t_stack_list	*ft_lstnew(int content)
+t_stack_list	*ft_lstnew(int content, t_stack *stacks)
 {
 	t_stack_list	*node;
 
@@ -56,6 +56,7 @@ t_stack_list	*ft_lstnew(int content)
 		return (NULL);
 	node->content = content ;
 	node->pos = 0;
+	node->size = stacks->size;
 	node->next = NULL;
 	return (node);
 }

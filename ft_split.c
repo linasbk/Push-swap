@@ -80,7 +80,7 @@ char	**ft_free(char **str, int size)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(t_stack *stacks, char const *s, char c)
 {
 	char	**str;
 	int		i;
@@ -102,6 +102,5 @@ char	**ft_split(char const *s, char c)
 			return (ft_free(str, i));
 		i++;
 	}
-	str[i] = 0;
-	return (str);
+	return (str[i] = 0, stacks->size = full_len, str);
 }

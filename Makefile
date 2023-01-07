@@ -1,7 +1,7 @@
 
 NAME = push_swap
 
-SRCS = check_sort.c free.c main.c parsing.c push_swap.c rotate.c utilis.c utilis_1.c sort_3num.c ft_split.c sort_5num.c sort_num.c get_index.c
+SRCS = check_sort.c free.c main.c parsing.c push_swap.c rotate.c utilis.c utilis_1.c sort_3num.c ft_split.c sort_5num.c sort_num.c get_index.c sort_num500.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -14,10 +14,10 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -fsanitize=address
+	$(CC) $(CFLAGS) $(OBJS) -fsanitize=address -o $(NAME)
 
 %.o: %.c ./include/push_swap.h
-	$(CC) $(CFLAGS) -c $<
+	$(CC) $(CFLAGS) -fsanitize=address -c $<
 
 clean:
 	$(RM) $(OBJS)
