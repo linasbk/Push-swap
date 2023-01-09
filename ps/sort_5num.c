@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"include/push_swap.h"
+#include"push_swap.h"
 
 int	min_value(t_stack_list *stack)
 {
@@ -25,6 +25,7 @@ int	min_value(t_stack_list *stack)
 	}
 	return (min);
 }
+
 int	find_pos(t_stack_list *stack, int min)
 {
 	int				pos;
@@ -49,21 +50,21 @@ void	sort_5num(t_stack *stacks)
 
 	tmp = stacks->a;
 	size = stacks->a->size;
-    while (size != 3)
-    {
-        min = min_value(stacks->a);
-        while (tmp->content != min)
-        {
-            if (find_pos(stacks->a, min) >= (size / 2))
-                reverse_rotate(stacks, 'a');
-            else
-                rotate(stacks, 'a');
-            tmp = stacks->a;
-        }
-        ft_push_b(stacks);
+	while (size != 3)
+	{
+		min = min_value(stacks->a);
+		while (tmp->content != min)
+		{
+			if (find_pos(stacks->a, min) >= (size / 2))
+				reverse_rotate(stacks, 'a');
+			else
+				rotate(stacks, 'a');
+			tmp = stacks->a;
+		}
+		ft_push_b(stacks);
 		size--;
-    }
-    sort_3num(stacks);
-    while (stacks->b)
-        ft_push_a(stacks);
+	}
+	sort_3num(stacks);
+	while (stacks->b)
+		ft_push_a(stacks);
 }

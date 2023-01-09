@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"include/push_swap.h"
+#include"push_swap.h"
 
-static int	ft_isspace(char str)
+int	ft_isspace(char str)
 {
 	if (str == '\t' || str == '\f' || str == '\v'
 		|| str == '\n' || str == '\r' || str == ' ')
@@ -82,5 +82,3 @@ t_stack_list	*ft_lstlast(t_stack_list *lst)
 		lst = lst ->next;
 	return (lst);
 }
-
-

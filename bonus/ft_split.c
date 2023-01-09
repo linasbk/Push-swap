@@ -6,11 +6,11 @@
 /*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:52:46 by lsabik            #+#    #+#             */
-/*   Updated: 2022/12/22 16:52:49 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/08 14:44:34 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"include/push_swap.h"
+#include"push_swap.h"
 
 int	get_num_word(char *s, char sep)
 {

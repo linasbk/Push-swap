@@ -10,15 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"include/push_swap.h"
+#include"push_swap.h"
 
 void	ft_swap(t_stack_list *stack)
 {
-	int	tmp;
+	int	tmp_content;
+	int	tmp_pos;
 
-	tmp = stack->content;
+	tmp_content = stack->content;
+	tmp_pos = stack->pos;
 	stack->content = stack->next->content;
-	stack->next->content = tmp;
+	stack->pos = stack->next->pos;
+	stack->next->content = tmp_content;
+	stack->next->pos = tmp_pos;
 }
 
 void	swap_stack(t_stack *stacks, char var)
@@ -32,9 +36,7 @@ void	swap_stack(t_stack *stacks, char var)
 	}
 	if (var == 'b')
 	{
-		if (!stacks->b)
-			return ;
-		if (!(stacks->b)->next)
+		if (!(stacks->b) || !(stacks->b)->next)
 			return ;
 		ft_swap(stacks->b);
 		write(1, "sb\n", 3);
@@ -49,7 +51,6 @@ void	swap_stack(t_stack *stacks, char var)
 		ft_swap(stacks->b);
 		write(1, "ss\n", 3);
 	}
-	return ;
 }
 
 void	ft_push_b(t_stack *stacks)
@@ -57,7 +58,7 @@ void	ft_push_b(t_stack *stacks)
 	t_stack_list	*tmp;
 
 	if (!(stacks->a))
-		return ; // FREE B
+		return ;
 	if (!stacks->b)
 	{
 		stacks->b = stacks->a;

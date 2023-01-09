@@ -6,15 +6,15 @@
 /*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:53:00 by lsabik            #+#    #+#             */
-/*   Updated: 2022/12/22 16:53:02 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/08 14:50:28 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"include/push_swap.h"
+#include"push_swap.h"
 
 void	ft_error(void)
 {
-	write(1, "\033[1;31m Error\n", 15);
+	write(1, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
@@ -42,41 +42,45 @@ void	fill_stack(t_stack *stacks, char **args)
 		ft_error();
 }
 
+void	is_empty(int ac, char **av)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < ac)
+	{
+		j = 0;
+		while (ft_isspace(av[i][j]))
+			j++;
+		if (av[i][j] == 0)
+			ft_error();
+		i++;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stacks;
 	char	*arg;
-	int		size;
 	char	**args;
+	int		i;
 
+	i = 0;
 	if (ac < 2)
 		exit(EXIT_FAILURE);
+	is_empty(ac, av);
 	stacks = ft_init();
 	arg = join_args(av, ac);
 	args = ft_split(stacks, arg, ' ');
 	fill_stack(stacks, args);
 	get_pos(stacks->a);
-	size = stacks->a->size;
-	if (size <= 3)
+	if (stacks->a->size <= 3)
 		sort_3num(stacks);
-	if (size > 3 && stacks->a->size <= 5)
+	if (stacks->a->size > 3 && stacks->a->size <= 5)
 		sort_5num(stacks);
-	if (size > 5)
-		sort_num(stacks, size);
-	// 	printf("\n****** A ******\n\n");
-	// while(stacks->a)
-	// {
-	// 	if (stacks->a)
-	// 		printf("%d,%d\n", stacks->a->content,stacks->a->pos);
-	// 	stacks->a = stacks->a->next;
-	// }
+	if (stacks->a->size > 5)
+		sort_num(stacks, stacks->a->size);
 	free_all(stacks);
 	return (0);
 }
-
-	// 	printf("\n****** B ******\n\n");
-	// while(stacks->b)
-	// {
-	// 	printf("%d\n", stacks->b->content);
-	// 	stacks->b = stacks->b->next;
-	// }

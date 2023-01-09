@@ -10,8 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"include/push_swap.h"
+#include"push_swap.h"
 
+// void	ft_putstr(char *str)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (*(str + i) != '\0')
+// 	{
+// 		write(1, (str + i), 1);
+// 		i++;
+// 	}
+// }
 void	ft_rotate(t_stack_list **stack)
 {
 	t_stack_list	*tmp;
@@ -20,7 +31,6 @@ void	ft_rotate(t_stack_list **stack)
 
 	tail = ft_lstlast(*stack);
 	top = *stack;
-
 	tmp = (*stack)->next;
 	tail->next = top;
 	top->next = NULL;
@@ -31,18 +41,14 @@ void	rotate(t_stack *stacks, char var)
 {
 	if (var == 'a')
 	{
-		if (!(stacks->a))
-			return ;
-		if (!(stacks->a)->next)
+		if (!(stacks->a) || !(stacks->a)->next)
 			return ;
 		ft_rotate(&stacks->a);
 		write(1, "ra\n", 3);
 	}
 	if (var == 'b')
 	{
-		if (!stacks->b)
-			return ;
-		if (!(stacks->b)->next)
+		if (!(stacks->b) || !(stacks->b)->next)
 			return ;
 		ft_rotate(&stacks->b);
 		write(1, "rb\n", 3);
@@ -57,7 +63,6 @@ void	rotate(t_stack *stacks, char var)
 		ft_rotate(&stacks->b);
 		write(1, "rr\n", 3);
 	}
-	return ;
 }
 
 void	ft_reverse_rotate(t_stack_list **stack)
@@ -80,18 +85,14 @@ void	reverse_rotate(t_stack *stacks, char var)
 {
 	if (var == 'a')
 	{
-		if (!stacks->a)
-			return ;
-		if (!(stacks->a)->next)
+		if (!(stacks->a) || !(stacks->a)->next)
 			return ;
 		ft_reverse_rotate(&stacks->a);
 		write(1, "rra\n", 4);
 	}
 	if (var == 'b')
 	{
-		if (!stacks->b)
-			return ;
-		if (!(stacks->b)->next)
+		if (!(stacks->b) || !(stacks->b)->next)
 			return ;
 		ft_reverse_rotate(&stacks->b);
 		write(1, "rrb\n", 4);
@@ -106,5 +107,4 @@ void	reverse_rotate(t_stack *stacks, char var)
 		ft_reverse_rotate(&stacks->b);
 		write(1, "rrr\n", 4);
 	}
-	return ;
 }

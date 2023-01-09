@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"include/push_swap.h"
+#include"push_swap.h"
 
 size_t	ft_strlen(char *s)
 {
@@ -92,5 +92,3 @@ char	*join_args(char **av, int ac)
 	}
 	return (argument);
 }
-
-
