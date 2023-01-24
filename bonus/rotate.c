@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:53:28 by lsabik            #+#    #+#             */
-/*   Updated: 2023/01/08 14:45:22 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:44:41 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,25 @@ void	rotate(t_stack *stacks, char var)
 	if (var == 'a')
 	{
 		if (!(stacks->a))
-			return ;
+			return  ;
 		if (!(stacks->a)->next)
-			return ;
+			return  ;
 		ft_rotate(&stacks->a);
 	}
 	if (var == 'b')
 	{
 		if (!stacks->b)
-			return ;
+			return  ;
 		if (!(stacks->b)->next)
-			return ;
+			return  ;
 		ft_rotate(&stacks->b);
 	}
 	if (var == 's')
 	{
 		if (!stacks->b || !stacks->a)
-			return ;
+			return  ;
 		if (!(stacks->b)->next || !(stacks->a)->next)
-			return ;
+			return  ;
 		ft_rotate(&stacks->a);
 		ft_rotate(&stacks->b);
 	}
@@ -76,25 +76,25 @@ void	reverse_rotate(t_stack *stacks, char var)
 	if (var == 'a')
 	{
 		if (!stacks->a)
-			return ;
+			return  ;
 		if (!(stacks->a)->next)
-			return ;
+			return  ;
 		ft_reverse_rotate(&stacks->a);
 	}
 	if (var == 'b')
 	{
 		if (!stacks->b)
-			return ;
+			return  ;
 		if (!(stacks->b)->next)
-			return ;
+			return  ;
 		ft_reverse_rotate(&stacks->b);
 	}
 	if (var == 's')
 	{
 		if (!stacks->b || !stacks->a)
-			return ;
+			return  ;
 		if (!(stacks->b)->next || !(stacks->a)->next)
-			return ;
+			return  ;
 		ft_reverse_rotate(&stacks->a);
 		ft_reverse_rotate(&stacks->b);
 	}

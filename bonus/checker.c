@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 14:44:16 by lsabik            #+#    #+#             */
-/*   Updated: 2023/01/08 14:44:23 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:49:16 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*ft_init(void)
 	stacks = (t_stack *)malloc(sizeof(t_stack));
 	stacks->a = NULL;
 	stacks->b = NULL;
-	return (stacks);
+	return  stacks;
 }
 
 void	fill_stack(t_stack *stacks, char **args)
@@ -96,6 +96,8 @@ int	main(int ac, char **av)
 	args = ft_split(stacks, arg, ' ');
 	fill_stack(stacks, args);
 	str = get_next_line(0);
+	if (check_sort(&stacks->a))
+		return;
 	while (str)
 	{
 		compare_instructions(stacks, str);

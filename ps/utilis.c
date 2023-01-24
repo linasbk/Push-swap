@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilis.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:54:12 by lsabik            #+#    #+#             */
-/*   Updated: 2022/12/22 16:54:14 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:46:15 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	ft_isspace(char str)
 {
 	if (str == '\t' || str == '\f' || str == '\v'
 		|| str == '\n' || str == '\r' || str == ' ')
-		return (1);
-	return (0);
+		return  1;
+	return  0;
 }
 
 long	ft_atoi(char *str)
@@ -36,37 +36,34 @@ long	ft_atoi(char *str)
 		str++;
 	}
 	if (!*str)
-		return (INT_MAX + 1l);
+		return  INT_MAX + 1l;
 	while (*str >= '0' && *str <= '9')
 	{
 		num = (num * 10) + *str - 48;
 		str++;
 	}
 	if (*str)
-		return (INT_MAX + 1l);
-	return (sign * num);
+		return  INT_MAX + 1l;
+	return  sign * num;
 }
 
 t_stack_list	*ft_lstnew(int content, t_stack *stacks)
 {
 	t_stack_list	*node;
-
 	node = (t_stack_list *)malloc(sizeof(t_stack_list));
 	if (!node)
-		return (NULL);
+		return  NULL;
 	node->content = content ;
 	node->pos = 0;
 	node->size = stacks->size;
 	node->next = NULL;
-	return (node);
+	return  node;
 }
 
 void	ft_lstadd_back(t_stack_list **lst, t_stack_list *new)
 {
 	t_stack_list	*last_node;
-
-	if (!*lst)
-	{
+	if(!*lst){
 		*lst = new;
 		return ;
 	}
@@ -76,9 +73,9 @@ void	ft_lstadd_back(t_stack_list **lst, t_stack_list *new)
 
 t_stack_list	*ft_lstlast(t_stack_list *lst)
 {
-	if (!lst)
-		return (NULL);
+	if(!lst)
+		return  NULL;
 	while (lst->next)
 		lst = lst ->next;
-	return (lst);
+	return  lst;
 }

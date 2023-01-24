@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:52:46 by lsabik            #+#    #+#             */
-/*   Updated: 2023/01/08 14:44:34 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:44:52 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	get_num_word(char *s, char sep)
 		}
 		i++;
 	}
-	return (count);
+	return  count;
 }
 
 char	*ft_substr(char *s, unsigned int start, size_t len)
@@ -42,17 +42,17 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 
 	i = 0;
 	if (!s)
-		return (0);
+		return  0;
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
-		return (0);
+		return  0;
 	while (i < len)
 	{
 		*(str + i) = *(s + i + start);
 		i++;
 	}
 	*(str + i) = '\0';
-	return (str);
+	return  str;
 }
 
 char	*word_dup(char *s, char c, int *lenght)
@@ -69,7 +69,7 @@ char	*word_dup(char *s, char c, int *lenght)
 		i++;
 	word = ft_substr(s, k, i - k);
 	*lenght = i;
-	return (word);
+	return  word;
 }
 
 char	**ft_free(char **str, int size)
@@ -77,7 +77,7 @@ char	**ft_free(char **str, int size)
 	while (size--)
 		free(str[size]);
 	free(str);
-	return (NULL);
+	return  NULL;
 }
 
 char	**ft_split(t_stack *stacks, char const *s, char c)
@@ -90,16 +90,16 @@ char	**ft_split(t_stack *stacks, char const *s, char c)
 	i = 0;
 	lenght = 0;
 	if (!s)
-		return (NULL);
+		return  NULL;
 	full_len = get_num_word((char *)s, c);
 	str = malloc(sizeof(char *) * (full_len + 1));
 	if (!str)
-		return (NULL);
+		return  NULL;
 	while (i < full_len)
 	{
 		str[i] = word_dup((char *)s, c, &lenght);
 		if (!str[i])
-			return (ft_free(str, i));
+			return ft_free(str, i);
 		i++;
 	}
 	return (str[i] = 0, stacks->size = full_len, str);

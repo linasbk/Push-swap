@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilis.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:54:12 by lsabik            #+#    #+#             */
-/*   Updated: 2022/12/22 16:54:14 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:47:52 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	ft_isspace(char str)
 {
 	if (str == '\t' || str == '\f' || str == '\v'
 		|| str == '\n' || str == '\r' || str == ' ')
-		return (1);
-	return (0);
+		return 1;
+	return 0;
 }
 
 long	ft_atoi(char *str)
@@ -53,12 +53,12 @@ t_stack_list	*ft_lstnew(int content, t_stack *stacks)
 
 	node = (t_stack_list *)malloc(sizeof(t_stack_list));
 	if (!node)
-		return (NULL);
+		return NULL;
 	node->content = content ;
 	node->pos = 0;
 	node->size = stacks->size;
 	node->next = NULL;
-	return (node);
+	return node;
 }
 
 void	ft_lstadd_back(t_stack_list **lst, t_stack_list *new)
@@ -68,7 +68,7 @@ void	ft_lstadd_back(t_stack_list **lst, t_stack_list *new)
 	if (!*lst)
 	{
 		*lst = new;
-		return ;
+		return  ;
 	}
 	last_node = ft_lstlast(*lst);
 	last_node->next = new;
@@ -77,8 +77,8 @@ void	ft_lstadd_back(t_stack_list **lst, t_stack_list *new)
 t_stack_list	*ft_lstlast(t_stack_list *lst)
 {
 	if (!lst)
-		return (NULL);
+		return NULL;
 	while (lst->next)
 		lst = lst ->next;
-	return (lst);
+	return lst;
 }

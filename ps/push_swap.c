@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:53:19 by lsabik            #+#    #+#             */
-/*   Updated: 2022/12/22 16:53:20 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:44:41 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,23 @@ void	swap_stack(t_stack *stacks, char var)
 	if (var == 'a')
 	{
 		if (stacks->size < 2)
-			return ;
+			return  ;
 		ft_swap(stacks->a);
 		write(1, "sa\n", 3);
 	}
 	if (var == 'b')
 	{
 		if (!(stacks->b) || !(stacks->b)->next)
-			return ;
+			return  ;
 		ft_swap(stacks->b);
 		write(1, "sb\n", 3);
 	}
 	if (var == 's')
 	{
 		if (!stacks->b || !stacks->a)
-			return ;
+			return  ;
 		if (!(stacks->b)->next || !(stacks->a)->next)
-			return ;
+			return  ;
 		ft_swap(stacks->a);
 		ft_swap(stacks->b);
 		write(1, "ss\n", 3);
@@ -58,7 +58,7 @@ void	ft_push_b(t_stack *stacks)
 	t_stack_list	*tmp;
 
 	if (!(stacks->a))
-		return ;
+		return  ;
 	if (!stacks->b)
 	{
 		stacks->b = stacks->a;
@@ -73,7 +73,7 @@ void	ft_push_b(t_stack *stacks)
 		stacks->b->next = tmp;
 	}
 	write(1, "pb\n", 3);
-	return ;
+	return  ;
 }
 
 void	ft_push_a(t_stack *stacks)
@@ -81,7 +81,7 @@ void	ft_push_a(t_stack *stacks)
 	t_stack_list	*tmp;
 
 	if (!(stacks->b))
-		return ;
+		return  ;
 	if (!stacks->a)
 	{
 		stacks->a = stacks->b;
@@ -96,5 +96,5 @@ void	ft_push_a(t_stack *stacks)
 		stacks->a->next = tmp;
 	}
 	write(1, "pa\n", 3);
-	return ;
+	return  ;
 }

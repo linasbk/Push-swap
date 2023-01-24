@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_3num.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:53:45 by lsabik            #+#    #+#             */
-/*   Updated: 2023/01/08 14:50:43 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:48:41 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	max_value(t_stack_list *stack)
 			highest = stack->content;
 		stack = stack->next;
 	}
-	return (highest);
+	return highest;
 }
 
 void	sort_3num(t_stack	*stacks)
@@ -32,7 +32,7 @@ void	sort_3num(t_stack	*stacks)
 
 	tmp = stacks->a;
 	if (check_sort(&stacks->a))
-		return ;
+		return  ;
 	if (tmp->content == max_value(stacks->a) && !(check_sort(&stacks->a)))
 		rotate(stacks, 'a');
 	else if (tmp->next->content == max_value(stacks->a)
@@ -41,5 +41,5 @@ void	sort_3num(t_stack	*stacks)
 	if (stacks->a->content > (stacks->a)->next->content
 		&& !(check_sort(&stacks->a)))
 		swap_stack(stacks, 'a');
-	return ;
+	return  ;
 }

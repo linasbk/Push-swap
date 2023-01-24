@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_5num.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:53:45 by lsabik            #+#    #+#             */
-/*   Updated: 2022/12/22 16:53:47 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:46:05 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	min_value(t_stack_list *stack)
 			min = stack->content;
 		stack = stack->next;
 	}
-	return (min);
+	return min;
 }
 
 int	find_pos(t_stack_list *stack, int min)
@@ -35,11 +35,11 @@ int	find_pos(t_stack_list *stack, int min)
 	while (stack)
 	{
 		if (stack->content == min)
-			return (pos);
+			return pos;
 		pos++;
 		stack = stack->next;
 	}
-	return (-1);
+	return -1;
 }
 
 void	sort_5num(t_stack *stacks)
@@ -47,14 +47,13 @@ void	sort_5num(t_stack *stacks)
 	int				size;
 	int				min;
 	t_stack_list	*tmp;
-
+	if(check_sort(&stacks->a))
+		return ;
 	tmp = stacks->a;
 	size = stacks->a->size;
-	while (size != 3)
-	{
+	while(size != 3){
 		min = min_value(stacks->a);
-		while (tmp->content != min)
-		{
+		while(tmp->content != min){
 			if (find_pos(stacks->a, min) >= (size / 2))
 				reverse_rotate(stacks, 'a');
 			else

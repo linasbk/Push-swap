@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:52:23 by lsabik            #+#    #+#             */
-/*   Updated: 2022/12/22 16:52:27 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:46:53 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	check_sort(t_stack_list **stack)
 	while (*stack && tmp->next)
 	{
 		if (tmp->content > tmp->next->content)
-			return (0);
+			return 0;
 		tmp = tmp->next;
 	}
-	return (1);
+	return 1;
 }

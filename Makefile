@@ -1,4 +1,3 @@
-
 NAME = push_swap
 
 SRCS = ps/check_sort.c ps/free.c ps/main.c ps/parsing.c ps/push_swap.c ps/rotate.c ps/utilis.c ps/utilis_1.c ps/sort_3num.c ps/ft_split.c ps/sort_5num.c ps/sort_num.c ps/get_index.c
@@ -12,7 +11,7 @@ B_HEADER = bonus/push_swap.h
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 

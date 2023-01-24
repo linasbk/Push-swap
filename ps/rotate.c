@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:53:28 by lsabik            #+#    #+#             */
-/*   Updated: 2022/12/22 16:53:30 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:44:41 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,23 @@ void	rotate(t_stack *stacks, char var)
 	if (var == 'a')
 	{
 		if (!(stacks->a) || !(stacks->a)->next)
-			return ;
+			return  ;
 		ft_rotate(&stacks->a);
 		write(1, "ra\n", 3);
 	}
 	if (var == 'b')
 	{
 		if (!(stacks->b) || !(stacks->b)->next)
-			return ;
+			return  ;
 		ft_rotate(&stacks->b);
 		write(1, "rb\n", 3);
 	}
 	if (var == 's')
 	{
 		if (!stacks->b || !stacks->a)
-			return ;
+			return  ;
 		if (!(stacks->b)->next || !(stacks->a)->next)
-			return ;
+			return  ;
 		ft_rotate(&stacks->a);
 		ft_rotate(&stacks->b);
 		write(1, "rr\n", 3);
@@ -86,23 +86,23 @@ void	reverse_rotate(t_stack *stacks, char var)
 	if (var == 'a')
 	{
 		if (!(stacks->a) || !(stacks->a)->next)
-			return ;
+			return  ;
 		ft_reverse_rotate(&stacks->a);
 		write(1, "rra\n", 4);
 	}
 	if (var == 'b')
 	{
 		if (!(stacks->b) || !(stacks->b)->next)
-			return ;
+			return  ;
 		ft_reverse_rotate(&stacks->b);
 		write(1, "rrb\n", 4);
 	}
 	if (var == 's')
 	{
 		if (!stacks->b || !stacks->a)
-			return ;
+			return  ;
 		if (!(stacks->b)->next || !(stacks->a)->next)
-			return ;
+			return  ;
 		ft_reverse_rotate(&stacks->a);
 		ft_reverse_rotate(&stacks->b);
 		write(1, "rrr\n", 4);

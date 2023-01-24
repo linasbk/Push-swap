@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_index.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsabik <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lsabik <lsabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 14:50:16 by lsabik            #+#    #+#             */
-/*   Updated: 2023/01/08 14:50:18 by lsabik           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:44:41 by lsabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	get_index(t_stack_list *b, int num)
 	while (tmp)
 	{
 		if (tmp->pos == num)
-			return (i);
+			return i);
 		i++;
 		tmp = tmp->next;
 	}
-	return (-1);
+	return -1);
 }
 
 void	get_pos(t_stack_list *a)
