@@ -2,14 +2,6 @@
 	📖 Push-Swap
 </h1>
 
-<p align="center">
-	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/linasbk/get_next_line?color=lightblue" />
-	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/linasbk/get_next_line?color=critical" />
-	<img alt="Code language count" src="https://img.shields.io/github/languages/count/linasbk/get_next_line?color=yellow" />
-	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/linasbk/get_next_line?color=blue" />
-	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/linasbk/get_next_line?color=green" />
-</p>
-
 ## Introduction
 
 This project comprises an interesting case study regarding sorting algorithms and its performances, being part of the core curriculum of all 42 schools worldwide. The task is simple: given a sequence of random numbers disposed in a stack data structure (**stack A**), sort them with the help of an empty auxiliary stack (**stack B**) and a set of specific stack operations. The operations allowed are described as follows, as written in our task:
